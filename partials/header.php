@@ -11,7 +11,7 @@
 <header class="flex justify-between bg-gray-900 text-white py-4">
     <div class="flex items-center ml-4">
         <img src="./assets/img/ras.svg" class="h-20 mr-2 p-2" alt="Logo">
-        <h1 class="text-2xl">[HACKERS Poulette]</h1>
+        <h1 class="text-2xl">[HACKERS] Poulette</h1>
 </header>
 
 <body>
