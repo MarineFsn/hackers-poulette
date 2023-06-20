@@ -5,87 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <script src="./js/validClientSide.js"></script>
 </head>
 <?php require "php/validation.php"; ?>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("contactForm");
-        const nameInput = document.getElementById("name");
-        const firstnameInput = document.getElementById("firstname");
-        const emailInput = document.getElementById("email");
-        const descriptionInput = document.getElementById("description");
-
-        form.addEventListener("submit", function (event) {
-            let isValid = true;
-
-            const errorMessages = form.getElementsByClassName("error");
-            for (let i = 0; i < errorMessages.length; i++) {
-                errorMessages[i].textContent = "";
-            }
-
-            if (nameInput.value.trim().length < 2) {
-                isValid = false;
-                document.getElementById("nameError").textContent =
-                    "Lastname must be at least 2 characters long.";
-                nameInput.style.borderColor("border-red-500");
-            } else {
-                nameInput.classList.remove("border-red-500");
-            }
-
-            if (firstnameInput.value.trim().length < 2) {
-                isValid = false;
-                document.getElementById("firstnameError").textContent =
-                    "Firstname must be at least 2 characters long.";
-                firstnameInput.classList.add("border-red-500");
-            } else {
-                firstnameInput.classList.remove("border-red-500");
-            }
-
-            if (
-                !emailInput.value
-                    .trim()
-                    .match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)
-            ) {
-                isValid = false;
-                document.getElementById("emailError").textContent =
-                    "Invalid email address.";
-                emailInput.classList.add("border-red-500");
-            } else {
-                emailInput.classList.remove("border-red-500");
-            }
-
-            if (descriptionInput.value.trim().length < 2) {
-                isValid = false;
-                document.getElementById("descriptionError").textContent =
-                    "Description must be at least 2 characters long.";
-                descriptionInput.classList.add("border-red-500");
-            } else {
-                descriptionInput.classList.remove("border-red-500");
-            }
-
-            if (!isValid) {
-                event.preventDefault();
-            }
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        let successDialog = document.getElementById('successDialog');
-        let closeDialog = document.getElementById('closeDialog');
-
-
-        if (window.location.search.includes('success=true')) {
-            successDialog.classList.remove('hidden');
-        }
-
-
-        closeDialog.addEventListener('click', function () {
-            successDialog.classList.add('hidden');
-        });
-    });
-
-</script>
-
 
 <div class="container">
     <header>
@@ -97,7 +19,7 @@
         <div id="successDialog" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-white p-6 rounded-lg">
                 <h2 class="text-2xl font-bold mb-4">Formulaire envoyé avec succès!</h2>
-                <p>Votre message a été envoyé correctement à la base de données.</p>
+                <p>Votre message a été envoyé correctement.</p>
                 <button id="closeDialog" class="mt-4 bg-gray-900 text-white font-bold py-2 px-4 rounded">Fermer</button>
             </div>
         </div>
