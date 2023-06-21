@@ -8,7 +8,8 @@
     <script src="./js/validClientSide.js"></script>
 
 </head>
-<?php require "php/validation.php"; ?>
+<?php require "./php/validation.php"; ?>
+<?php include "./php/validationFile.php"; ?>
 
 <div class="container">
     <header>
@@ -16,7 +17,6 @@
     </header>
 
     <body class="bg-gray-900">
-
         <div id="successDialog" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div class="bg-white p-6 rounded-lg">
                 <h2 class="text-2xl font-bold mb-4">Formulaire envoyé avec succès!</h2>
@@ -49,7 +49,7 @@
                     </div>
 
 
-                    <div class="col-span-2">
+                    <div>
                         <label for="email" class="block">E-mail Address:</label>
                         <input type="email" id="email" name="email" required minlength="2" maxlength="255"
                             class="w-full px-4 py-2 border rounded"
@@ -58,16 +58,15 @@
                     </div>
 
 
-                    <div class="col-span-2">
+                    <div>
                         <label for="file" class="block">File:</label>
                         <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png, .gif" max-size="2097152"
                             class="w-full px-4 py-2 border rounded" class="reset-input">
-                        <?php require "php/validationFile.php"; ?>
 
                     </div>
 
 
-                    <div class="col-span-2">
+                    <div>
                         <label for="description" class="block">Description:</label>
                         <textarea id="description" name="description" required minlength="2" maxlength="1000"
                             class="w-full px-4 py-2 border rounded"
@@ -92,8 +91,6 @@
                 <?php include "./partials/footer.php"; ?>
             </div>
         </footer>
-</div>
-
-</body>
+    </body>
 
 </html>

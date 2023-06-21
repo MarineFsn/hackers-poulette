@@ -1,4 +1,3 @@
-<?php include "connection.php" ?>
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fileSize = $file['size'];
         $fileType = $file['type'];
 
-
-        $uploadDirectory = 'uploadedFiles/';
+        $uploadDirectory = './uploadedFiles/';
         $targetFilePath = $uploadDirectory . basename($fileName);
 
 

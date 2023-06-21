@@ -46,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$name, $firstname, $email, $description]);
 
             header('Location: index.php?success=true');
-            exit;
         } catch (PDOException $e) {
             die('Database connection failed: ' . $e->getMessage());
         }
