@@ -74,31 +74,29 @@ try {
     $stmt = $pdo->prepare("INSERT INTO hackerpoulette (lastname, firstname, email, description) VALUES (?, ?, ?, ?)");
     $stmt->execute([$name, $firstname, $email, $description]);
 
-   
+
     if (!empty($fileName)) {
         $stmt = $pdo->prepare("UPDATE hackerpoulette SET file_name = ? WHERE id = ?");
         $stmt->execute([$fileName, $pdo->lastInsertId()]);
     }
 
-    
+
     if (!empty($fileTmpName) && move_uploaded_file($fileTmpName, './php/uploadedFiles' . $fileName)) {
-       
+
     } else {
-       
+
     }
 
     header('Location: /index.php?success=true');
 } catch (PDOException $e) {
     die('Database connection failed: ' . $e->getMessage());
 }
-}
-}
 
 function sanitizeInput($input)
 {
-$input = trim($input);
-$input = stripslashes($input);
-$input = htmlspecialchars($input);
-return $input;
+    $input = trim($input);
+    $input = stripslashes($input);
+    $input = htmlspecialchars($input);
+    return $input;
 }
 ?>
